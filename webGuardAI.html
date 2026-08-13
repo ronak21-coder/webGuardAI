@@ -1,0 +1,594 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<!-- =============================================================
+     HEADER
+============================================================= -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <a href="#home" class="logo">
+
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M12 3L19 6V11C19 16 16 19.5 12 21C8 19.5 5 16 5 11V6L12 3Z"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                    />
+                    <path
+                        d="M12 8V14"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linecap="round"
+                    />
+                </svg>
+            </div>
+
+            <span>WebGuard <strong>AI</strong></span>
+
+        </a>
+
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">
+            ☰
+        </button>
+
+        <nav class="nav" id="nav">
+
+            <a href="#home" class="nav-link active" data-section="home">
+                Home
+            </a>
+
+            <a href="#dashboard" class="nav-link" data-section="dashboard">
+                Dashboard
+            </a>
+
+            <a href="#history" class="nav-link" data-section="history">
+                History
+            </a>
+
+            <a href="#machine-learning" class="nav-link" data-section="machine-learning">
+                Machine Learning
+            </a>
+
+            <a href="#methodology" class="nav-link" data-section="methodology">
+                Methodology
+            </a>
+
+            <a href="#safety" class="nav-link" data-section="safety">
+                Safety Tips
+            </a>
+
+        </nav>
+
+    </div>
+
+    <!-- style shee link here -->
+    <link rel="stylesheet" href="webGuardai.css">
+
+</header>
+
+<body>
+    
+
+<main>
+
+<!-- =============================================================
+     HOME
+============================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+
+            <svg viewBox="0 0 24 24" fill="none">
+                <path
+                    d="M12 3L19 6V11C19 16 16 19.5 12 21C8 19.5 5 16 5 11V6L12 3Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                />
+            </svg>
+
+            AI / ML POWERED
+
+        </div>
+
+        <h1>
+            Browse Smarter.
+            <span class="cyan">Stay Safer.</span>
+        </h1>
+
+        <p class="hero-description">
+            AI-powered webpage classification that analyzes website
+            characteristics and helps identify potentially unsafe webpages.
+        </p>
+
+
+        <!-- SCANNER -->
+
+        <div class="scanner">
+
+            <label class="label" for="urlInput">
+                ENTER WEBSITE URL
+            </label>
+
+            <div class="input-row">
+
+                <input
+                    id="urlInput"
+                    class="url-input"
+                    type="url"
+                    placeholder="https://example.com"
+                    autocomplete="url"
+                >
+
+                <button class="scan-btn" id="scanButton">
+
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M4 8V5C4 4.4 4.4 4 5 4H8M16 4H19C19.6 4 20 4.4 20 5V8M20 16V19C20 19.6 19.6 20 19 20H16M8 20H5C4.4 20 4 19.6 4 19V16"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                        />
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="3"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                        />
+                    </svg>
+
+                    <span>Scan Website</span>
+
+                </button>
+
+            </div>
+
+
+            <div class="scanner-options">
+
+                <label class="toggle-label">
+
+                    <span class="toggle">
+
+                        <input type="checkbox" id="contentToggle">
+
+                        <span class="toggle-slider"></span>
+
+                    </span>
+
+                    Also analyze page content
+                    (optional, slower)
+
+                </label>
+
+
+                <div class="model-badge">
+
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="8"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                        />
+                        <path
+                            d="M8 12H16M12 8V16"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                        />
+                    </svg>
+
+                    Random Forest v1.0
+
+                </div>
+
+            </div>
+
+
+            <p class="disclaimer">
+                WebGuard AI returns an automated, model-based risk assessment.
+                It is not a guarantee that a website is safe or malicious.
+            </p>
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div class="result" id="result">
+
+            <div class="result-header">
+
+                <div>
+                    <div class="label">SCAN RESULT</div>
+                    <div class="result-title" id="resultUrl">
+                        example.com
+                    </div>
+                </div>
+
+                <span class="risk-badge" id="riskBadge">
+                    Low Risk
+                </span>
+
+            </div>
+
+            <div class="score-row">
+
+                <div class="score">
+                    <span id="score">12</span>%
+                </div>
+
+                <div class="score-bar">
+                    <div class="score-fill" id="scoreFill"></div>
+                </div>
+
+            </div>
+
+            <p class="result-details" id="resultDetails">
+                The website characteristics appear relatively low risk.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         VISUAL
+    ========================================================= -->
+
+    <div class="visual">
+
+        <div class="visual-card">
+
+            <div class="network"></div>
+
+            <span class="node node-1"></span>
+            <span class="node node-2"></span>
+            <span class="node node-3"></span>
+            <span class="node node-4"></span>
+            <span class="node node-5"></span>
+            <span class="node node-6"></span>
+
+            <div class="shield">
+
+                <div class="shield-grid"></div>
+
+                <div class="shield-core"></div>
+
+            </div>
+
+            <div class="scan-line"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     DASHBOARD
+============================================================= -->
+
+<section class="section dashboard" id="dashboard">
+
+    <div class="section-heading">
+
+        <h2>Security Dashboard</h2>
+
+        <p>
+            Monitor your website scanning activity and risk assessments.
+        </p>
+
+    </div>
+
+    <div class="dashboard-grid">
+
+        <div class="stat">
+
+            <div class="stat-label">
+                TOTAL SCANS
+            </div>
+
+            <div class="stat-value" id="totalScans">
+                0
+            </div>
+
+        </div>
+
+        <div class="stat">
+
+            <div class="stat-label">
+                LOW RISK
+            </div>
+
+            <div class="stat-value" id="lowRisk">
+                0
+            </div>
+
+        </div>
+
+        <div class="stat">
+
+            <div class="stat-label">
+                HIGH RISK
+            </div>
+
+            <div class="stat-value" id="highRisk">
+                0
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     HISTORY
+============================================================= -->
+
+<section class="section" id="history">
+
+    <div class="section-heading">
+
+        <h2>Scan History</h2>
+
+        <p>
+            Previously analyzed websites are stored locally in your browser.
+        </p>
+
+    </div>
+
+    <div class="history-list" id="historyList">
+
+        <div class="card" id="emptyHistory">
+            <p>No websites have been scanned yet.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     MACHINE LEARNING
+============================================================= -->
+
+<section class="section" id="machine-learning">
+
+    <div class="section-heading">
+
+        <h2>Machine Learning</h2>
+
+        <p>
+            WebGuard AI uses website characteristics to estimate potential
+            webpage risk.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <article class="card">
+
+            <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="8"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                    />
+                    <path
+                        d="M8 12H16M12 8V16"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                    />
+                </svg>
+            </div>
+
+            <h3>Random Forest</h3>
+
+            <p>
+                Multiple decision trees can be combined to produce a
+                classification result from webpage features.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M5 19V9M12 19V5M19 19V12"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linecap="round"
+                    />
+                </svg>
+            </div>
+
+            <h3>Feature Analysis</h3>
+
+            <p>
+                URL characteristics, domain signals and optional page
+                content can contribute to the risk assessment.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M12 3L19 6V11C19 16 16 19.5 12 21C8 19.5 5 16 5 11V6L12 3Z"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                    />
+                    <path
+                        d="M9 12L11 14L15 10"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                    />
+                </svg>
+            </div>
+
+            <h3>Risk Classification</h3>
+
+            <p>
+                The model produces a risk estimate intended to help users
+                make more informed browsing decisions.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     METHODOLOGY
+============================================================= -->
+
+<section class="section" id="methodology">
+
+    <div class="section-heading">
+
+        <h2>Methodology</h2>
+
+        <p>
+            A simplified view of how a website moves through the WebGuard
+            analysis pipeline.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <article class="card">
+            <h3>01 — Input</h3>
+            <p>
+                The user provides a website URL to the scanner.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3>02 — Features</h3>
+            <p>
+                Relevant URL and website characteristics are extracted for
+                analysis.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3>03 — Classification</h3>
+            <p>
+                A Random Forest model can classify the observed characteristics
+                and generate a risk estimate.
+            </p>
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     SAFETY
+============================================================= -->
+
+<section class="section" id="safety">
+
+    <div class="section-heading">
+
+        <h2>Safety Tips</h2>
+
+        <p>
+            Simple habits can help reduce exposure to potentially unsafe
+            websites.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <article class="card">
+
+            <h3>Check the URL</h3>
+
+            <p>
+                Look carefully for misspellings, unusual domains and
+                suspicious URL structures.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <h3>Don't Share Sensitive Data</h3>
+
+            <p>
+                Avoid entering passwords, payment details or personal
+                information on unfamiliar websites.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <h3>Keep Software Updated</h3>
+
+            <p>
+                Keep your browser, operating system and security software
+                updated with current security fixes.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =============================================================
+     FOOTER
+============================================================= -->
+
+<footer>
+
+    WebGuard AI © 2026 · AI-powered webpage risk assessment
+
+
+    <!-- java script link here -->
+<script src="webGuard.js"></script>
+</footer>
+
+
+<div class="toast" id="toast"></div>
+
+
+</body>
+</html>
